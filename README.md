@@ -1,4 +1,4 @@
-<a href="https://ibb.co.com/BjrnxQC"><img src="https://i.ibb.co.com/k09mfwS/dirlister-banner.jpg" alt="dirlister-banner" border="0" style="width:100%;"></a>
+<a href="https://github.com/karjok/dirlister/blob/main/src/dirlister_banner.png"><img src="https://github.com/karjok/dirlister/blob/main/src/dirlister_banner.png" alt="dirlister-banner" border="0" style="width:100%;"></a>
 
 # DIRLISTer - Directory Listing Downloader
 
