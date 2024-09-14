@@ -42,7 +42,6 @@ python dirlister.py
    ```bash
    mv dirlister /home/bin/
    ```
-> You can download executable version of this tool on release
    
 The downloaded files will be saved in the dirlister_result_path folder located in the same directory from where you run the script.
 
