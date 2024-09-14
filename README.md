@@ -1,4 +1,4 @@
-<a href="https://github.com/karjok/dirlister/blob/main/src/dirlister_banner.png"><img src="https://github.com/karjok/dirlister/blob/main/src/dirlister_banner.png" alt="dirlister-banner" border="0" style="width:100%;"></a>
+<a href="https://ibb.co.com/BjrnxQC"><img src="https://i.ibb.co.com/k09mfwS/dirlister-banner.jpg" alt="dirlister-banner" border="0" style="width:100%;"></a>
 
 # DIRLISTer - Directory Listing Downloader
 
@@ -32,7 +32,7 @@ To run the script, use:
 ```bash
 python dirlister.py
 ```
-### Running as s System Tool (Linux)
+### Running as System Tool (Linux)
 1. Make the script executable:
    ```bash
    mv dirlister.py dirlister
@@ -42,6 +42,7 @@ python dirlister.py
    ```bash
    mv dirlister /home/bin/
    ```
+> You can download executable version of this tool on release
    
 The downloaded files will be saved in the dirlister_result_path folder located in the same directory from where you run the script.
 
@@ -52,15 +53,14 @@ Check out the demo video:
 
 ## Features
 - **User-friendly:** Simple to use.
+- **Excluding:** Exclude extensions capaility
+- **Concurrent:** Use concurrent when downloading the files
 - **Efficiency:** Skips files that have already been downloaded.
 - **Open Source:** Contribute and improve the project!
 
-## Limitations
-- **Link Scraping:** Occasionally, the script may struggle with scraping links.
-- **File Extensions:** Only common file extensions are listed.
-- **No Filtering:** All listed extensions will be downloaded, as filtering capabilities are not yet implemented.
-- **Single-threaded:** Downloads occur one at a time.
-- **Tested Environment:** Currently tested only on Kali Linux. If you encounter issues, please report them in the Issues section.
+## Tested Environment
+
+DIRLISTer has been tested and confirmed to work on Linux-based systems only. If you encounter issues while using this tool on other operating systems or even machines, please provide details in the [Issues](https://github.com/karjok/dirlister/issues) section of this repository. Your feedback is valuable and will help improve compatibility with other environments.
 
 ## Contributing
 Feel free to contribute to the project by submitting pull requests or reporting issues. Your input is greatly appreciated!
