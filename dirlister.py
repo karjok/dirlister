@@ -89,24 +89,24 @@ def get_all_url_from(url, file_extensions=[], use_ssl=True):
 	all_urls_json = []
 
 	# check if url is not 'file'
-	check_header = requests.head(url, verify=use_ssl)
-	if 'text/html' not in check_header.headers.get('Content-Type'):
+	check_header = requests.head(url, verify=use_ssl, allow_redirects=True)
+	if 'text/html' not in check_header.headers.get('Content-Type',''):
 		is_file_url = True
 		all_urls_json.append({"is_file": is_file_url, "url":url})
 		all_urls.append(url)
 	else:
-		response = requests.get(url, verify=use_ssl)
+		response = requests.get(url, verify=use_ssl, allow_redirects=True)
 		host_url = urlparse(response.url)
 		dir_list_base_url = host_url.scheme+"://"+host_url.netloc
-		if response.status_code == 200 and "index of" in str(response.content.decode('utf-8')).lower():
+		if response.status_code == 200 and "index of" in str(response.content.decode('utf-8')).lower() or "directory listing" in str(response.content.decode('utf-8')).lower():
 			html = bs4.BeautifulSoup(response.text, 'html.parser')
 			a_tags = html.findAll('a')
 			for a in a_tags:
-				href = a.get('href') if a.text.lower() not in ["parent directory", "name", "last modified", "size", "description","../"] else ""
+				href = a.get('href') if a.text.lower() not in ["parent directory", "name", "last modified", "size", "description","../",".."] else ""
 				if href:
 					if host_url.path not in href:
 						href = "/".join([i for i in host_url.path.split("/") if i] + [i for i in href.split("/") if i])
-					is_file = True if os.path.splitext(href.lower())[1].replace(".","") else False # any([href.lower().endswith("."+ext) for ext in file_extensions])
+					is_file = True if os.path.splitext(href.lower())[1].replace(".","") and not href.endswith("/") else False
 					is_absolute = False if href.startswith(dir_list_base_url) else True
 					full_href = urlunparse((host_url.scheme, host_url.netloc, href, '', '', '')) if is_absolute else href
 					path = urlparse(full_href).path
@@ -145,9 +145,9 @@ def main(url):
 			if answer.lower() == "y":
 				return True
 			return False
-		check = requests.get(url, verify=use_ssl)
+		check = requests.get(url, verify=use_ssl, allow_redirects=True)
 		code = check.status_code
-		is_directory_listing = "index of" in check.text.lower()
+		is_directory_listing = "index of" in check.text.lower() or "directory listing" in check.text.lower()
 		if code == 200:
 			print(f"[{green}INF{reset}] Connection estabilished !")
 			exclude_file_extensions = input(f"[{green}INP{reset}] Input exclude file extension sparated by comma, leave blank to include all extensions. {green}example:{reset} zip,jpg,mp4: ")
