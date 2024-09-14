@@ -49,7 +49,7 @@ The downloaded files will be saved in the dirlister_result_path folder located i
 
 ## Demo
 Check out the demo video: 
-[![asciicast](https://asciinema.org/a/8lelfsNAXjjv4WkebGild88ZT.svg)](https://asciinema.org/a/8lelfsNAXjjv4WkebGild88ZT)
+[![asciicast](https://asciinema.org/a/9vRVUe25HRO4ajN8AtanqtOQH.svg)](https://asciinema.org/a/9vRVUe25HRO4ajN8AtanqtOQH)
 
 ## Features
 - **User-friendly:** Simple to use.
