@@ -74,7 +74,7 @@ def download_file(remote_file_path, use_ssl=True):
 							saved_file.write(content_chunk)
 					dl_message = f"[{green}{timestamps}{reset}] Download file {green}{file_name}{reset} ({file.headers.get('content-type', '-')}) {round(content_length/1024, 2)} MB {green}OK{reset}"
 			else:
-				dl_message = f"[{red}{timestamps}{reset}] Download file {red}{remote_file_path}{reset} failed. Perhaps no content file ? 🧐"
+				dl_message = f"[{red}{timestamps}{reset}] Download file {red}{remote_file_path}{reset} failed. Code: {red}{file.status_code}{reset}, Perhaps forbidden acces or no content file ? 🧐"
 			
 		except Exception as e:
 			dl_message = f"[{red}{timestamps}{reset}] Download file {red}{remote_file_path}{reset} failed with error: {red}{e}{reset}"
