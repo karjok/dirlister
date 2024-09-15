@@ -197,6 +197,9 @@ def dirlister():
 		url = input(f"[{green}INP{reset}] Input your directory listig URL: ")
 		while not url:
 			url = input(f"[{yellow}WRN{reset}] Please input the target directory URL ex {green}https://youtargetsite.com/uploads{reset}, CTRL + C to exit: ")
+		url_scheme = urlparse(url).scheme
+		if not url_scheme:
+			url = "https://" + url.strip()
 		main(url.strip())
 	except:
 		exit(0)
