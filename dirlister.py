@@ -150,8 +150,6 @@ def main(url):
 		is_directory_listing = "index of" in check.text.lower() or "directory listing" in check.text.lower()
 		if code == 200:
 			print(f"[{green}INF{reset}] Connection estabilished !")
-			exclude_file_extensions = input(f"[{green}INP{reset}] Input exclude file extension sparated by comma, leave blank to include all extensions. {green}example:{reset} zip,jpg,mp4: ")
-			exclude_file_extensions = [ext.lower() for ext in exclude_file_extensions.split(",")]
 			continue_ = True
 		else:
 			continue_ = ask_q(f"[{yellow}WRN{reset}] The server responded with code {code}, are you sure to continue ?")
@@ -165,6 +163,8 @@ def main(url):
 		else:
 			continue_ = ask_q(f"[{yellow}WRN{reset}] Failed connecting to the server with error {green}{err}{reset} . Are you sure want to continue ?")
 	if continue_:
+		exclude_file_extensions = input(f"[{green}INP{reset}] Input exclude file extension sparated by comma, leave blank to include all extensions. {green}example:{reset} zip,jpg,mp4: ")
+		exclude_file_extensions = [ext.lower() for ext in exclude_file_extensions.split(",")]
 		perform_scrape_url(url, use_ssl=use_ssl)
 		urls_without_excluded_ext = [i for i in all_scraped_urls if os.path.splitext(i)[1].replace(".","") not in exclude_file_extensions]
 		print(f"[{green}INF{reset}] ℹ️  Scraping URL process done with {green}{len(all_scraped_urls)}{reset} urls")
