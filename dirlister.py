@@ -154,7 +154,7 @@ def main(url):
 		else:
 			continue_ = ask_q(f"[{yellow}WRN{reset}] The server responded with code {code}, are you sure to continue ?")
 		if not is_directory_listing:
-			continue_ = ask_q(f"[{yellow}WRN{reset}] Your given URL looks like not containing 'Index Of' string that indicate the directory listing. Are you sure want to continue ?")
+			continue_ = ask_q(f"[{yellow}WRN{reset}] Your given URL looks like not containing 'Index Of' or similar string that indicate the directory listing. Are you sure want to continue ?")
 	except Exception as err:
 		if "SSLError" in str(err):
 			print(f"[{yellow}WRN{reset}] SSL Error occured. Automating perform request with no SSL..")
